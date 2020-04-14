@@ -17,6 +17,9 @@ export class SearchComponent implements OnInit {
     });
     this.service.currentVegetableName.subscribe();
     // write a function that calls changeVegetableName upon value change in the form
+    this.searchForm.get("searchVegetable").valueChanges.subscribe((val) => {
+      this.service.changeVegetableName(val);
+    });
   }
   getVegetableNames(name) {
     this.searchForm.controls["searchVegetable"].setValue(
